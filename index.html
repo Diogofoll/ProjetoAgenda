@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Sistema de Notas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Sistema de Notas</h1>
+    
+    <div class="entrada">
+        <label for="textoNota">Digite uma palavra:</label>
+        <input type="text" id="textoNota" placeholder="Digite uma palavra aqui">
+        <input type="checkbox" id="urgente">
+        <label for="urgente">Palavra Urgente</label>
+        <button onclick="adicionarNota()">Adicionar Palavra</button>
+        <button onclick="apagarTudo()">Apagar Tudo</button>
+    </div>
+
+    <div class="container">
+        <div class="quadrado" id="quadrado-vermelho">
+            <h2>Palavras Urgentes</h2>
+            <ul id="lista-vermelha"></ul>
+        </div>
+        
+        <div class="quadrado" id="quadrado-verde">
+            <h2>Palavras Normais</h2>
+            <ul id="lista-verde"></ul>
+        </div>
+    </div>
+
+    <script src="js/notas.js"></script>
+</body>
+</html>
