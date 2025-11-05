@@ -1,19 +1,21 @@
-var textoNota = document.getElementById("textoNota") 
-var checkUrgente = document.getElementById("urgente")
 var listaVermelha = document.getElementById("lista-vermelha")
 var listaVerde = document.getElementById("lista-verde")
 
 var cores = ["blue", "green", "purple"]
 var indiceCor = 0
 
+
 function adicionarNota() {
+    var textoNota = document.getElementById("textoNota")
+    var checkUrgente = document.getElementById("urgente")
+
     alert("Tentando adicionar a palavra: " + textoNota.value)
-    
+
     if(textoNota.value == "") {
         alert("Digite uma palavra!")
         return
     }
-    
+
     if(textoNota.value.includes(" ")) {
         alert("Digite apenas uma palavra!")
         return
@@ -21,19 +23,19 @@ function adicionarNota() {
 
     var novaNota = document.createElement("li")
     novaNota.classList.add("nota")
-    novaNota.innerHTML = textoNota.value
+
+    novaNota.textContent = textoNota.value
+    var botaoRemover = document.createElement('button')
+    botaoRemover.textContent = "Remover"
+    botaoRemover.className = "botao-remover"
+    botaoRemover.onclick = function() { 
+        novaNota.remove() 
+    }
+    novaNota.appendChild(botaoRemover)
 
     novaNota.style.backgroundColor = cores[indiceCor]
     indiceCor = (indiceCor + 1) % cores.length
-
-    var botaoRemover = document.createElement("button")
-    botaoRemover.textContent = "Remover"
-    botaoRemover.onclick = function() {
-        novaNota.remove()
-    }
-
-    novaNota.appendChild(botaoRemover)
-    
+   
     if(checkUrgente.checked) {
         listaVermelha.appendChild(novaNota)
         checkUrgente.checked = false
